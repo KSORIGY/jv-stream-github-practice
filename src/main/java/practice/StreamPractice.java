@@ -25,8 +25,8 @@ public class StreamPractice {
                 .mapToInt(Integer::parseInt)
                 .filter(num -> num % PARITY_DIVISIOR == 0)
                 .min()
-                .orElseThrow(() -> new RuntimeException("Can't get min value from list: <"
-                        + numbers + ">"));
+                .orElseThrow(() -> new RuntimeException("Can't get min value from list: "
+                        + numbers));
     }
 
     /**

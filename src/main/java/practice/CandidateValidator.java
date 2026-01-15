@@ -6,7 +6,7 @@ import model.Candidate;
 public class CandidateValidator implements Predicate<Candidate> {
     private static final int MIN_AGE = 35;
     private static final String NATIONALITY = "Ukrainian";
-    private static final int MIN_TIME_LIVING_IN_UA = 35;
+    private static final int MIN_TIME_LIVING_IN_UA = 10;
     /**
      * Your help with a election is needed. Given list of candidates, where each element
      * has Candidate.class type.
@@ -27,11 +27,9 @@ public class CandidateValidator implements Predicate<Candidate> {
         int endLiving = Integer.parseInt(livingYears[1]);
         int timeLiving = endLiving - startLiving;
 
-        if (candidate.getAge() <= MIN_AGE && candidate.isAllowedToVote()
+        return candidate.getAge() >= MIN_AGE
+                && candidate.isAllowedToVote()
                 && candidate.getNationality().equals(NATIONALITY)
-                && timeLiving >= MIN_TIME_LIVING_IN_UA) {
-            return true;
-        }
-        return false;
+                && timeLiving >= MIN_TIME_LIVING_IN_UA;
     }
 }
