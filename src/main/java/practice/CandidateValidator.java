@@ -1,8 +1,7 @@
 package practice;
 
-import model.Candidate;
-
 import java.util.function.Predicate;
+import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
     private static final int MIN_AGE = 35;
@@ -20,6 +19,7 @@ public class CandidateValidator implements Predicate<Candidate> {
      * We want to reuse our validation in future, so let's write our own impl of Predicate
      * parametrized with Candidate in CandidateValidator.
      */
+
     @Override
     public boolean test(Candidate candidate) {
         String[] livingYears = candidate.getPeriodsInUkr().trim().split("-");
